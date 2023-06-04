@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <title>Dungeon Master App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="system-message-column">
+            <div class="settings">
+                <input id="api-key" placeholder="API Key" type="password" />
+                <select id="gpt-model"><option value="gpt-4" selected>gpt-4</option><option value="gpt-3.5-turbo">gpt-3.5-turbo</option></select>
+            </div>
+            <textarea id="system-message" placeholder="Enter system message"></textarea>
+        </div>
+        <div class="conversation-column">
+            <div class="conversation-controls">
+                <button id="add-message">Add Message</button>
+                <button id="roll">Roll</button>
+                <button id="submit">Submit</button>
+                <button id="reset">Reset</button>
+            </div>
+            <div id="message-container"></div>
+        </div>
+    </div>
+    <div id="message-template" style="display:none;">
+        <div class="message-element">
+            <div class="message-element-menus">
+              <div class="message-role">Text</div>
+            </div>
+            <div class="message-content">
+                <h2>Meta Data</h2>
+                <textarea class="metadata" cols="40"></textarea>
+                <h2>Dialog</h2>
+                <textarea class="dialog" cols="40"></textarea>
+            </div>
+            <button class="remove-message">X</button>
+        </div>
+    </div>
+    <script src="code/App.js"></script>
+    <script src="code/ChatMessage.js"></script>
+    <script src="code/ConversationView.js"></script>
+    <script src="code/Fixtures.js"></script>
+    <script src="code/MessageView.js"></script>
+    <script src="code/Player.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.system-message-column {
+  flex: 1;
+  gap: 10px;
+  padding: 1em;
+}
+
+.conversation-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  padding-left: 4em;
+  max-height: 100%;
+  overflow: auto;
+  gap: 10px;
+}
+
+#message-container {
+  flex: 1; /* Add this to make the element fill the available height */
+  overflow-y: auto; /* Add this to enable scrolling when content overflows */
+}
+
+textarea {
+  resize: vertical;
+  width: 100%;
+  height: 100%;
+  color: #353740;
+  font-family: helvetica,sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px;
+}
+
+textarea.message-content {
+  width: 40em;
+}
+
+.message-element {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.message-role {
+  margin-right: 10px;
+}
+
+.remove-message {
+  margin-left: 10px;
+}
+
+.conversation-controls {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-bottom: 6px;
+}
+
+.settings {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 1em;
+  gap: 10px;
+}
+
+#api-key {
+  width: 30em;
+}
+
+.message-element-menus {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 10px;
+}
+
+.remove-message {
+  margin-left: 4em;
+}
+
+.message-element {
+  margin-bottom: 3em;
+}
+
+h2 {
+  color: gainsboro;
+  font-size: 13px;
+  padding: 0px;
+  padding-top: 2px;
+  margin: 0px;
+  margin-bottom: 4px;
+}
+
+.message-content {
+  width: 40em;
+}
