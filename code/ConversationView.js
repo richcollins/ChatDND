@@ -217,7 +217,6 @@ class ConversationView {
     roll() {
         let mv = this.messageViews[this.messageViews.length - 1];
         mv.updateMessage();
-        console.log(mv.message);
 
         const requestedRolls = mv.message.metaData["requested-rolls"];
         const performedRolls = requestedRolls.map((rr) => {
@@ -231,8 +230,8 @@ class ConversationView {
                 const v = Math.floor(Math.random() * rr.die) + 1;
                 roll.rolls.push(v);
                 roll["total-with-bonus"] += v;
-                roll["max-with-bonus"] += Math.max(v, roll["max-with-bonus"]);
-                roll["min-with-bonus"] += Math.min(v, roll["min-with-bonus"]);
+                roll["max-with-bonus"] = Math.max(v, roll["max-with-bonus"]);
+                roll["min-with-bonus"] = Math.min(v, roll["min-with-bonus"]);
             }
 
             roll["total-with-bonus"] += rr.bonus;
