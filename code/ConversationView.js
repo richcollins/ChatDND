@@ -19,6 +19,10 @@ class ConversationView {
         return document.getElementById('reset');
     }
 
+    get transcriptButton() {
+        return document.getElementById('transcript');
+    }
+
     get apiKeyInput() {
         return document.getElementById('api-key');
     }
@@ -57,6 +61,10 @@ class ConversationView {
 
         this.rollButton.addEventListener('click', () => {
             self.roll();
+        });
+
+        this.transcriptButton.addEventListener('click', () => {
+            self.generateTranscript();
         });
 
         this.systemMessage.addEventListener('change', () => {
@@ -251,6 +259,19 @@ class ConversationView {
         var rollView = this.addNewMessageView();
         rollView.role = "user";
         rollView.metaData = { "character-name": App.shared.player.characterName, "performed-rolls": performedRolls };
+    }
+
+    async generateTranscript() {
+        const transcript = this.messageViews.filter((mv) => {
+            mv.updateMessage();
+            return mv.message.dialog.trim() != "";
+        }).map((mv) => {
+            const speakerName = mv.message.metaData["character-name"] || mv.message.role;
+            return `${speakerName}:\n\n${mv.message.dialog}`
+        }).join("\n\n--------------------------------------------------------------------\n\n");
+
+        await navigator.clipboard.writeText(transcript);
+        console.log("Transcript copied to clipboard");
     }
 
 
